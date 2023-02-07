@@ -223,18 +223,20 @@ void get_socket_information(int s, player_t *player){
     int len = recvfrom (s, buffer , 4096, 0, (struct sockaddr *)&sender_in , &sender_in_size );
     if (len > 0)
     {
-        char addr_as_string [64];
-        inet_ntop (AF_INET , &sender_in .sin_addr , addr_as_string , 64);
-        printf ("received %d bytes from %s:%d\n", len, addr_as_string , ntohs (sender_in .sin_port ));
-        int *pos= split_coordinates(buffer);
+        player -> position.x = buffer[0];
+        player -> position.y = buffer[4];
+        // char addr_as_string [64];
+        // inet_ntop (AF_INET , &sender_in .sin_addr , addr_as_string , 64);
+        // printf ("received %d bytes from %s:%d\n", len, addr_as_string , ntohs (sender_in .sin_port ));
+        // int *pos= split_coordinates(buffer);
         
-        player -> position.x = pos[0];
-        player -> position.y = pos[1];
-        printf("%d\n%d\n", pos[0], pos[1]);
-        printf("%d %d\n", player->position.x, player->position.y);
+        // player -> position.x = pos[0];
+        // player -> position.y = pos[1];
+        // printf("%d\n%d\n", pos[0], pos[1]);
+        // printf("%d %d\n", player->position.x, player->position.y);
 
 
-        free(pos);
+        // free(pos);
     }
 }
 
