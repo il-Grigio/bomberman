@@ -1,5 +1,10 @@
 # bomberman
-clang.exe -I .\SDL2-2.26.0\include\ -o bomberman.exe .\bomberman.c -L .\SDL2-2.26.0\lib\x64\ -lSDL2
+.\build.bat
+
+.\bin\bomberman.exe
+
+
+#in python
 
 import socket
 
